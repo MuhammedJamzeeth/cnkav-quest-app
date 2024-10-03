@@ -1,0 +1,24 @@
+name: Deploy on Push
+
+on:
+  push:
+    branches:
+      - master  # Trigger only on pushes to the master branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Trigger deployment webhook
+        run: |
+          curl -X POST https://deploy.cnkav.com/deploy \
+            -H "Content-Type: application/json" \
+            -d '{"ref": "refs/heads/master"}'
+        env:
+          # Optionally, add secrets or environment variables if needed
+          # For example, if you had a webhook secret:
+          # WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}

@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "title": "Discussion",
+      "taskDetails": "about...",
+      "durationDays": "2 Days",
+      "category": "Philothory task",
+      "rank": "Double Start",
+      "style": "Single star",
+      "price": "0$",
+      "startDate": "start date",
+      "endDate": "end date",
+      "startTime": "start time",
+      "endTime": "end time"
+    },
+    {
+      "id": "2",
+      "title": "Discussion",
+      "taskDetails": "about...",
+      "durationDays": "2 Days",
+      "category": "Philothory task",
+      "rank": "Double Start",
+      "style": "Single star",
+      "price": "0$",
+      "startDate": "start date",
+      "endDate": "end date",
+      "startTime": "start time",
+      "endTime": "end time"
+    }
+  ]
+}

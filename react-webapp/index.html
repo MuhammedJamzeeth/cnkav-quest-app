@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/cnkav-favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Include the React development libraries (must be introduced in this order) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- If the above React libraries have already been integrated through npm, skip them and include only the Agora RTC React SDK -->
+    <script src="https://download.agora.io/sdk/release/agora-rtc-react.2.2.0.js"></script>
+    <title>cnkav</title>
+    <!-- Open Sans Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet"
+    />
+
+    <!-- Font family -->
+    <style>
+        .font-open-sans {
+            font-family: "Open Sans", sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-open-sans">
+<div id="root"></div>
+<script type="module" src="/src/main.jsx"></script>
+
+</body>
+</html>

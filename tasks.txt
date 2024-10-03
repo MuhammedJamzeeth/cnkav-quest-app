@@ -1,0 +1,10 @@
+Tech stack is react with backend fast api and python including date base mongodb for existing by website. 
+
+Requirements 
+-Events with community events(users sell events with 30% commission) and exclusive room event(company sells events) 
+-Affiliate marketing (request product to be added and update , delete or add one of the subscription for affiliate marketing) and 15% commission on the sold subscription for a month. 
+-wallet page and functionality like poppup withdrawal.( has payout functionality as well like withdrawal of funds). - order page display orders and metrics
+ - Subscription like upgrade and downgrade plan and subscription products like payments as well a and renewals on pages like  
+- Free-tier users need to see ads on the home page after landing. ( one ad when on the page and limited to one quest and one quest request per month limitation). 
+- Both regular and crypto payment already configured partly. 
+- Upgrade plan, subscriptions , pricing and features section in the home page should allow purchasing subscriptions

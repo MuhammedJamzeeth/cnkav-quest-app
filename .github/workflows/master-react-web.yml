@@ -1,0 +1,117 @@
+name: cnkav-frontend-react
+
+on:
+  push:
+  pull_request:
+    branches: [ master ]
+    paths:
+    - react-webapp/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: List files in root directory
+      run: ls -la
+    
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: |
+        cd react-webapp
+        npm install
+
+    # Optional: Run the tests and generate coverage report
+    # - name: Run the tests and generate coverage report
+    #   run: |
+    #     cd react-webapp
+    #     npm test -- --coverage
+
+    # Optional: Upload coverage to Codecov
+    # - name: Upload coverage to Codecov
+    #   uses: codecov/codecov-action@v1
+
+    - name: Build
+      run: |
+        cd react-webapp
+        npm install
+        npm run build
+        ls -al
+    
+    - name: 🎉 Deploy 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+
+         port: 22
+   
+    #    source-path: react-webapp/dist/
+        local-dir: ./react-webapp/dist/  # Assuming your built project is in the 'dist' folder
+     #   destination-path: ./public_html/
+        server-dir:  ./public_html/
+         sftp: true 
+    # - name: List files in build directory
+    #   working-directory: react-webapp
+    #   run:
+    #     ls -la build
+
+    #- name: Deploy to server
+     # uses: Samkirkland/web-deploy@v1
+
+     # with:
+     #   target-server: ${{ secrets.FTP_SERVER }}
+     #   remote-user: ${{ secrets.FTP_USERNAME }}
+     #   private-ssh-key: ${{secrets.CLIENT_SSH_KEY}} 
+     #   source-path: react-webapp/dist/
+     #   destination-path: var/www/cnkav
+        
+      # working-directory: react-webapp
+      # run: 
+      #   node deploy.js
+      # env:
+      #   FTP_SERVER: ${{ secrets.FTP_SERVER }}
+      #   FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+      #   FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+
+
+    #- name: install fastapi requirements
+     # run: python pip install -r requirements.txt
+
+
+
+
+     # on:
+#   push:
+#     branches:
+#       - master
+# jobs:
+#   FTP-Deploy-Action:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout Code
+#         uses: actions/checkout@v2.1.0
+#         with:
+#           fetch-depth: 2
+#       - name: FTP Deploy Action
+#         uses: SamKirkland/FTP-Deploy-Action@4.3.1
+#         with:
+#           server: ${{ secrets.FTP_SERVER }}
+#           username: ${{ secrets.FTP_USERNAME }}
+#           password: ${{ secrets.FTP_PASSWORD }}
+#           #When project completed only run on the server
+#           #local-dir: "dist"  # Specify your local directory if different
+#           port: 21
+#           #git-ftp-args: "--insecure"  # Optional arguments for git-ftp

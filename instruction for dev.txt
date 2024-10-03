@@ -1,0 +1,20 @@
+1.at first pull the latest code from master  branch 
+
+2.check on react-webapp section get,post,put etc api request  should be https://backend.cnkav.com this or https://104.247.173.193:8000 this when you push the code but make sure it will be https://backend.cnkav.com this
+
+
+and 
+
+3.python_backend section main.py host will be  host="0.0.0.0" this not localhost ..,,, repo test f
+
+
+"if __name__ == "__main__":
+    uvicorn.run(
+        app="app.main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True
+    )" this is the last section on main.py
+
+
+4. react-webapp/vite.config.js  this file port is changes from 5173 to 4000 
